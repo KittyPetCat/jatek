@@ -75,6 +75,7 @@ namespace jatek
                 jelszoismet.Clear();
                 email.Clear();
 
+
                 
             }
             catch (Exception ex) 
