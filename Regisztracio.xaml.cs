@@ -70,6 +70,11 @@ namespace jatek
                 insertCmd.Parameters.AddWithValue("@mail", emails);
                 insertCmd.ExecuteNonQuery();
                 MessageBox.Show("Sikeres regisztráció!", "Kész", MessageBoxButton.OK, MessageBoxImage.Information);
+                felhasznalo.Clear();
+                jelszo.Clear();
+                jelszoismet.Clear();
+                email.Clear();
+
                 
             }
             catch (Exception ex) 
