@@ -50,7 +50,7 @@ namespace jatek
             {
                 using var con = new MySql.Data.MySqlClient.MySqlConnection(App.ConnStr);
                 con.Open();
-                string sql = "select count(*) from felhasznalo where fnev=@nev or gmail=@mails";
+                string sql = "select count(*) from felhasznalo where fnev=@nev or email=@mails";
                 var checkCmd=new MySql.Data.MySqlClient.MySqlCommand(sql,con);
                 checkCmd.Parameters.AddWithValue("@nev",nev);
                 checkCmd.Parameters.AddWithValue("@mails", emails);
@@ -63,7 +63,7 @@ namespace jatek
                     return;
                 }
                 string jelszotarolt = Hashkeszit.KeszitHash(jelszos);
-                string insertsql = "INSERT INTO felhasznalo (jelszo,fnev,gmail) VALUES (@jel,@nev,@mail)";
+                string insertsql = "INSERT INTO felhasznalo (jelszo,fnev,email) VALUES (@jel,@nev,@mail)";
                 using var insertCmd = new MySql.Data.MySqlClient.MySqlCommand(insertsql, con);
                 insertCmd.Parameters.AddWithValue("@jel", jelszotarolt);
                 insertCmd.Parameters.AddWithValue("@nev", nev);
